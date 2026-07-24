@@ -933,8 +933,8 @@ const FEATURED = [
     title:"SAFMR - Smart Autonomous Floor Mopping Robot",
     role:"SYSTEM ARCHITECT & POWER ELECTRONICS LEAD · TEAM MINDFLAYERS · 2026",
     badge:"LiDAR SLAM · ROS 2 · COMPLETE COVERAGE",
-    anim:"robot",   // uses the animated robot graphic until you add photos
-    images:[],   // add photos here later, e.g. ["images/robot-1.jpg","images/robot-2.jpg"]
+    anim:"robot",   // animated robot graphic, used only when images:[] is empty
+    images:["images/Final_robot.jpeg"],   // add more here, e.g. ["images/Final_robot.jpeg","images/robot-2.jpg"]
     desc:"A full-stack autonomous cleaning robot that maps a room with LiDAR, plans a provably complete cleaning route across it, and then sweeps and mops that route unattended - not a random-bounce consumer robot. Built as a split-brain system: a Raspberry Pi 5 running ROS 2 Jazzy handles SLAM, localisation and coverage planning, while an STM32F407 executes real-time motion, joined by a single CRC-8 framed UART link.",
     specs:[
       {v:"RPLidar C1",  k:"SLAM · Nav2 · ROS 2 Jazzy"},
@@ -1009,7 +1009,7 @@ const PROJECTS = [
     role:"System Architect · Power Electronics Lead · Team MindFlayers",
     desc:"Full-stack autonomous cleaning robot that maps a room with LiDAR, plans a provably complete route across it, and sweeps and mops that route unattended. Split-brain architecture: a Raspberry Pi 5 on ROS 2 Jazzy runs slam_toolbox, AMCL, an EKF and Nav2, while an STM32F407 executes real-time motion through a 40 kHz DDS pulse engine with jerk-limited S-curve profiling, joined by a CRC-8 framed UART link. Wrote a Boustrophedon Cellular Decomposition coverage planner from first principles, and designed both Altium boards - the main controller PCB and a USB-C Power Delivery LiPo charger (STM32G071 + BQ25703A, assembled and bench-tested). Deliberately encoderless: distance closes on verified step counts, heading on gyro.",
     tech:["ROS 2 Jazzy","Nav2","slam_toolbox","RPLidar C1","STM32F407","STM32G071","Altium","Raspberry Pi 5","Python · OpenCV"],
-    images:[],   // photos: ["images/file1.jpg","images/file2.jpg"] - first shows on the card, all open in the viewer
+    images:["images/Final_robot.jpeg"],   // photos: first shows on the card, all open in the viewer
     repo:"https://github.com/tharinadacwa/SMART-AUTONOMOUS-FLOOR-MOPPING-ROBOT", report:null
   },
   /*{
