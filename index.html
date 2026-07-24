@@ -924,28 +924,27 @@ const FEATURED = [
     report:null
   },
   {
-    /* ---- COMING SOON PROJECT ----------------------------------------
-       releaseAt = the moment this unlocks (your computer's local time).
-       Before it: shows the robot animation + live countdown.
-       After it:  shows normally, exactly like any other flagship.
-       To change the date, edit the line below. Format: YYYY-MM-DDTHH:MM:SS
+    /* ---- OPTIONAL "COMING SOON" SUPPORT -------------------------------
+       Add a line like  releaseAt:"2026-09-01T12:00:00",  to any flagship
+       and it shows an animation + live countdown until that moment, then
+       unlocks itself automatically. This project is already released, so
+       it has no releaseAt line.
        ---------------------------------------------------------------- */
-    releaseAt:"2026-07-23T23:59:00",
-    title:"Autonomous Floor Cleaning Robot",
-    role:"ROBOTICS & AUTONOMOUS NAVIGATION · 2026",
-    badge:"SLAM · AUTONOMOUS NAV",
+    title:"SAFMR - Smart Autonomous Floor Mopping Robot",
+    role:"SYSTEM ARCHITECT & POWER ELECTRONICS LEAD · TEAM MINDFLAYERS · 2026",
+    badge:"LiDAR SLAM · ROS 2 · COMPLETE COVERAGE",
     anim:"robot",   // uses the animated robot graphic until you add photos
     images:[],   // add photos here later, e.g. ["images/robot-1.jpg","images/robot-2.jpg"]
-    desc:"An autonomous floor cleaning robot for indoor environments, built around the RPLidar C1 - with autonomous floor cleaning and navigation capabilities.",
+    desc:"A full-stack autonomous cleaning robot that maps a room with LiDAR, plans a provably complete cleaning route across it, and then sweeps and mops that route unattended - not a random-bounce consumer robot. Built as a split-brain system: a Raspberry Pi 5 running ROS 2 Jazzy handles SLAM, localisation and coverage planning, while an STM32F407 executes real-time motion, joined by a single CRC-8 framed UART link.",
     specs:[
-      {v:"RPLidar C1", k:"360° laser scanning"},
-      {v:"SLAM",       k:"Mapping & localization"},
-      {v:"Autonomous", k:"Coverage path planning"},
-      {v:"Indoor",     k:"Obstacle avoidance"},
+      {v:"RPLidar C1",  k:"SLAM · Nav2 · ROS 2 Jazzy"},
+      {v:"BCD planner", k:"Complete coverage, from scratch"},
+      {v:"40 kHz DDS",  k:"STM32F407 step engine"},
+      {v:"2 Altium PCBs", k:"Controller + USB-C PD charger"},
     ],
-    note:"Full build log, photos, and repository will be published when the countdown ends.",
-    tech:["ROS 2","RPLidar C1","SLAM","Path Planning","Embedded C++"],
-    repo:"#",
+    note:"Deliberately encoderless: translation closes on verified step counts from the firmware's pulse tally, and heading comes from an MPU6050 gyro, with wheel-derived yaw excluded from the EKF. That constraint is why the motion engine uses jerk-limited S-curve profiling - it protects an odometry source that cannot detect its own errors. Coverage uses Boustrophedon Cellular Decomposition written from first principles, with the map rotated to the dominant wall angle found by a Hough transform. 380 mm chassis, 300 mm swept width, ~60 min runtime, 0.066 mm odometry resolution per step.",
+    tech:["ROS 2 Jazzy","Nav2","slam_toolbox","RPLidar C1","STM32F407","Altium Designer","ros2_control (C++)","Python · OpenCV"],
+    repo:"https://github.com/tharinadacwa/SMART-AUTONOMOUS-FLOOR-MOPPING-ROBOT",
     report:null
   },
 ];
@@ -1005,11 +1004,11 @@ const TOOLS = [
    └─────────────────────────────────────────────────────────────┘ */
 const PROJECTS = [
   {
-    title:"Smart Autonomous Floor Mopping Robot",
-    date:"Feb 2026 - Present", status:"live", statusLabel:"IN DEVELOPMENT",
-    role:"System Architect · Power Electronics Lead",
-    desc:"Full autonomous cleaning robot. Designed a power-management PCB (LiPo charge/discharge, multi-rail regulation, current monitoring across three subsystems) and an STM32 sensor-management PCB for cliff/obstacle detection, encoders, pump control and closed-loop motion. Leading the LiDAR-SLAM navigation stack on Raspberry Pi with ROS 2.",
-    tech:["Altium","STM32","LTspice","ROS 2","LiDAR","Raspberry Pi"],
+    title:"SAFMR - Smart Autonomous Floor Mopping Robot",
+    date:"Feb 2026 - Present", status:"live", statusLabel:"HARDWARE VALIDATED",
+    role:"System Architect · Power Electronics Lead · Team MindFlayers",
+    desc:"Full-stack autonomous cleaning robot that maps a room with LiDAR, plans a provably complete route across it, and sweeps and mops that route unattended. Split-brain architecture: a Raspberry Pi 5 on ROS 2 Jazzy runs slam_toolbox, AMCL, an EKF and Nav2, while an STM32F407 executes real-time motion through a 40 kHz DDS pulse engine with jerk-limited S-curve profiling, joined by a CRC-8 framed UART link. Wrote a Boustrophedon Cellular Decomposition coverage planner from first principles, and designed both Altium boards - the main controller PCB and a USB-C Power Delivery LiPo charger (STM32G071 + BQ25703A, assembled and bench-tested). Deliberately encoderless: distance closes on verified step counts, heading on gyro.",
+    tech:["ROS 2 Jazzy","Nav2","slam_toolbox","RPLidar C1","STM32F407","STM32G071","Altium","Raspberry Pi 5","Python · OpenCV"],
     images:[],   // photos: ["images/file1.jpg","images/file2.jpg"] - first shows on the card, all open in the viewer
     repo:"https://github.com/tharinadacwa/SMART-AUTONOMOUS-FLOOR-MOPPING-ROBOT", report:null
   },
